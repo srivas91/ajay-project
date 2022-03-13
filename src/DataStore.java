@@ -27,9 +27,14 @@ public class DataStore implements MyInterface{
        con=getConnection();
        try
        {
-        PreparedStatement ps=con.prepareStatement("insert into workshop(id,name)values(?,?)");
+        PreparedStatement ps=con.prepareStatement("insert into workshop(id,name,title,qualification,mobnum,email)values(?,?,?,?,?,?)");
           ps.setInt(1, obj.getId());
           ps.setString(2,obj.getName());
+          ps.setString(3,obj.getTitle());
+          ps.setString(4,obj.getQualification());
+          ps.setString(5,obj.getMobnum());
+          ps.setString(6,obj.getEmail());
+    
           
           result=ps.executeUpdate();
           
